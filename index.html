@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Мої ігри</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="menu active" id="mainMenu">
+    <h1>Виберіть гру</h1>
+    <button onclick="showGame('guess')">🎯 Вгадай число</button>
+    <button onclick="showGame('memory')">🧠 Знайди пару</button>
+    <button onclick="toggleTheme()">🌓 Змінити тему</button>
+  </div>
+
+  <div class="game-container" id="guessGame">
+    <h2>🎯 Гра: Вгадай число</h2>
+    <select id="difficultySelect" onchange="startGuessGame()">
+      <option value="100">1 - 100</option>
+      <option value="500">1 - 500</option>
+      <option value="1000">1 - 1000</option>
+    </select>
+    <p id="guessMessage">Вгадай число!</p>
+    <input type="number" id="guessInput" placeholder="Введіть число">
+    <button onclick="makeGuess()">Перевірити</button>
+    <p id="guessAttempts">Спроби: 0</p>
+    <p>🏆 Рекорд: <span id="guessRecord">—</span></p>
+    <button onclick="startGuessGame()">🔄 Почати знову</button>
+    <button onclick="goToMenu()">⬅ Назад</button>
+  </div>
+
+  <div class="game-container" id="memoryGame">
+    <h2>🧠 Гра: Знайди пару</h2>
+    <p id="memoryTimer">⏱ Час: 0с</p>
+    <p>Очки: <span id="memoryScore">0</span></p>
+    <div class="card-grid" id="cardGrid"></div>
+    <p id="memoryMessage"></p>
+    <button onclick="startMemoryGame()">🔄 Почати знову</button>
+    <button onclick="goToMenu()">⬅ Назад</button>
+  </div>
+
+  <canvas id="fireworks"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>
